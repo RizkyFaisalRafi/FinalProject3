@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView resultTv, solutionTv;
     MaterialButton buttonC, buttonBrackOpen, buttonBrackClose;
-    MaterialButton buttonDivide, buttonMultiply, buttonPlus, buttonMinus, buttonEquals;
+    MaterialButton buttonDivide, buttonMultiply, buttonPlus, buttonMinus, buttonEquals, buttonModulus;
     MaterialButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
     MaterialButton buttonAc, buttonDot;
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(button9, R.id.button_9);
         assignId(buttonAc, R.id.button_ac);
         assignId(buttonDot, R.id.button_dot);
+        assignId(buttonModulus, R.id.button_modulus);
 
     }
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (buttonText.equals("C")) {
             if (dataToCalculate.length() > 0) {
                 StringBuilder sb = new StringBuilder(solutionTv.getText());
-                sb.deleteCharAt(solutionTv.getText().length()-1);
+                sb.deleteCharAt(solutionTv.getText().length() - 1);
                 dataToCalculate = sb.toString();
                 solutionTv.setText(dataToCalculate);
                 resultTv.setText(dataToCalculate);
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    // Calculate using Library com.faendir.rhino:rhino-android:1.5.2
     String getResult(String data) {
 
         try {
