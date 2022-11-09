@@ -102,10 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Context context = Context.enter();
             context.setOptimizationLevel(-1);
             Scriptable scriptable = context.initStandardObjects();
+
             String finalResult = context.evaluateString(scriptable, data, "Javascript", 1, null).toString();
+            /* Jika Uncomment komanya tidak akan muncul ketika di ketik angka 2, namun ditugasnya kalkulator Mechanical
             if (finalResult.endsWith(".0")) {
                 finalResult = finalResult.replace(".0", "");
             }
+            */
             return finalResult;
         } catch (Exception e) {
             return "Err";
